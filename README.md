@@ -22,7 +22,7 @@
 
 For Job chain
 
-```php artisan parser:run```
+```php artisan schedule:run```
 
 ```php artisan queue:work```
 
@@ -51,7 +51,7 @@ _________________________________
 
 For Job chain 
 
-```docker-compose exec app php artisan parser:run```
+```docker-compose exec app php artisan schedule:run```
 
 ```docker-compose exec app php artisan queue:work```
 
