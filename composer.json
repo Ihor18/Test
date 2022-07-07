@@ -48,20 +48,6 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "post-install-cmd": [
-            "php artisan clear-compiled",
-            "chmod -R 777 public/",
-            "docker run --rm -v $(pwd):/app composer install",
-            "cp .env.example .env",
-            "php artisan storage:link",
-            "docker-compose up -d",
-            "docker-compose exec app php artisan key:generate",
-            "docker-compose exec app php artisan config:cache",
-            "docker-compose exec app php artisan migrate",
-            "docker-compose exec app php artisan db:seed",
-            "docker-compose exec app php artisan schedule:run",
-            "docker-compose exec app php artisan queue:work"
-        ]
     },
     "extra": {
         "laravel": {
