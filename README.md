@@ -17,14 +17,16 @@
 
 ```php artisan migrate```
 
-```php artisan db:seed```
-
 
 For Job chain
 
-```php artisan schedule:run```
-
 ```php artisan queue:work```
+
+```php artisan schedule:run```  --- schedule
+
+or
+
+```docker-compose exec app php artisan vote:clear``` --- add job now
 
 
 
@@ -46,13 +48,17 @@ _________________________________
 
 ```docker-compose exec app php artisan migrate```
 
-```docker-compose exec app php artisan db:seed```
-
 
 For Job chain 
 
-```docker-compose exec app php artisan schedule:run```
-
 ```docker-compose exec app php artisan queue:work```
+
+```docker-compose exec app php artisan schedule:run```  --- schedule
+
+or
+
+```docker-compose exec app php artisan vote:clear``` --- add job now 
+
+
 
 
