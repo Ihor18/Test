@@ -101,14 +101,15 @@ class PostController extends Controller
     public function vote(VoteRequest $request, Post $post): \Illuminate\Http\Response
     {
         $request = $request->validated();
-        $vote = Upvote::where('author_name', $request->name)
+
+        $vote = Upvote::where('author_name', $request['name'])
             ->where('post_id', $post->id)->first();
 
         if (!$vote) {
             $post->increment('upvote_count');
             Upvote::create(
                 [
-                'author_name' => $request->name,
+                'author_name' => $request['name'],
                 'post_id' => $post->id
                 ]
             );
