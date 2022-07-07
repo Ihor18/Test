@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Post;
 use App\Models\Upvote;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -35,5 +36,8 @@ class ClearVoteJob implements ShouldQueue
     public function handle()
     {
         Upvote::query()->truncate();
+        Post::query()->update([
+            'upvote_count' => 0
+        ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\VoteRequest;
 use App\Http\Resources\PostResource;
 use App\Models\Comment;
 use App\Models\Post;
@@ -97,8 +98,9 @@ class PostController extends Controller
      * @param  Request $request
      * @return \Illuminate\Http\Response
      */
-    public function vote(Request $request, Post $post): \Illuminate\Http\Response
+    public function vote(VoteRequest $request, Post $post): \Illuminate\Http\Response
     {
+        $request = $request->validated();
         $vote = Upvote::where('author_name', $request->name)
             ->where('post_id', $post->id)->first();
 
